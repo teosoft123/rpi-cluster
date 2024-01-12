@@ -11,9 +11,8 @@ ToDo
 # Initial
 
 * Install Raspberry Pi OS Lite (64-bit) using Raspberry Pi Imager
-  * Configure user name, password, host name and enable SSH server
+    * Configure user name, password, host name and enable SSH server
 * Boot from the media created on previous steps
-
 
 
 
