@@ -13,6 +13,12 @@ ToDo
 * Install Raspberry Pi OS Lite (64-bit) using Raspberry Pi Imager
     * Configure user name, password, host name and enable SSH server
 * Boot from the media created on previous steps
+    * Ensure you can login from remote terminal using ssh
+    * Configure static IP (recommended) or static DHCP mapping
+    * Disable swap
+    * Ensure cgroups requires by k8s are enabled
+    * Reboot
+    * 
 
 
 
