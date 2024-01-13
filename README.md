@@ -26,7 +26,19 @@ ToDo
     * 
 
 
+# k8s - Master node installation
 
+## One Liner
+
+    EXPORT K_MASTER_IP=172.21.200.87
+    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC= \
+        "server --disable=traefik \
+        --flannel-backend=host-gw \
+        --tls-san=$K_MASTER_IP \
+        --bind-address=$K_MASTER_IP \
+        --advertise-address=$K_MASTER_IP \
+        --node-ip=$K_MASTER_IP \
+        --cluster-init" sh -s -
 
 
 # References
