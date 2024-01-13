@@ -54,10 +54,10 @@ After the above commands executed successfully, you can add custom CA. It's reco
 
 https://docs.k3s.io/cli/certificate#certificate-authority-ca-certificates
 
-As root
+**On the target server node, As root:**
 mkdir -p /var/lib/rancher/k3s/server/tls
-copy CA, Inter CA/Key to above dir
-name them root-ca.pem  intermediate-ca.pem  intermediate-ca.key
+copy CA/Key to above dir - _use prepare-certs.sh script to copy certs from your source_
+name them root-ca.pem root-ca.key
 then run
 
 curl -sL https://github.com/k3s-io/k3s/raw/master/contrib/util/generate-custom-ca-certs.sh | bash -
