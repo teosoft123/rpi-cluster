@@ -39,16 +39,42 @@ Use this script and follow instructions provided at the beginning of the script:
 
 ## One Liner
 
-    EXPORT K_MASTER_IP=172.21.200.87
-    curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC= \
-        "server --disable=traefik \
-        --flannel-backend=host-gw \
-        --tls-san=$K_MASTER_IP \
-        --bind-address=$K_MASTER_IP \
-        --advertise-address=$K_MASTER_IP \
-        --node-ip=$K_MASTER_IP \
-        --cluster-init" sh -s -
+See docs
 
+## Allowing more configuration options
+
+    export K_MASTER_IP=172.21.200.87
+    export K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=rpi003 --tls-san=rpi003.h.remmirath.com"
+    export K_INSTALL_SCRIPT=./k3s-install.sh
+    curl https://get.k3s.io -o $K_INSTALL_SCRIPT
+    chmod +x $K_INSTALL_SCRIPT
+    INSTALL_K3S_SKIP_START="true" $K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw $K_TLS_SANS  --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP --cluster-init
+
+After the above commands executed successfully, you can add custom CA. It's recommended to add Intermediary CA, which will allow not to use Root CA key. Follow instructions here:    
+
+https://docs.k3s.io/cli/certificate#certificate-authority-ca-certificates
+
+As root
+mkdir -p /var/lib/rancher/k3s/server/tls
+copy CA, Inter CA/Key to above dir
+name them root-ca.pem  intermediate-ca.pem  intermediate-ca.key
+then run
+
+curl -sL https://github.com/k3s-io/k3s/raw/master/contrib/util/generate-custom-ca-certs.sh | bash -
+
+After all is successful:
+
+CA certificate generation complete. Required files are now present in: /var/lib/rancher/k3s/server/tls
+For security purposes, you should make a secure copy of the following files and remove them from cluster members:
+/var/lib/rancher/k3s/server/tls/intermediate-ca.crt
+/var/lib/rancher/k3s/server/tls/intermediate-ca.key
+/var/lib/rancher/k3s/server/tls/intermediate-ca.pem
+/var/lib/rancher/k3s/server/tls/root-ca.crt
+/var/lib/rancher/k3s/server/tls/root-ca.pem
+
+### k3s server command options
+
+https://docs.k3s.io/cli/server
 
 # References
 
