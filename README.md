@@ -17,16 +17,25 @@ ToDo
     * sudo apt update && sudo apt upgrade -y 
     * Optionally, add your users SSH key(s)
     * Optionally, install vim: sudo apt install vim -y
+    * Optionally, create or enable your favorite aliases (also maybe for root user)    
     * Disable swap
     * Ensure cgroups requires by k8s are enabled
     * Install iptables persistence package; answer No to save current: sudo apt install iptables-persistent -y
     * Configure static IP (recommended) or static DHCP mapping
     * Optionally, configure RPi to boot from USB, if you use USB drive: sudo raspi-config, Advanced Options, Boot Order
+    
     * Reboot - you will be asked to reboot on the previous step. Or reboot manually.
     * 
 
 
 # k8s - Master node installation
+
+## Custom CA Note 
+
+If you want to use your own CA, you have to create all certificates required by k8s __before__ first start of the k8s master.
+Use this script and follow instructions provided at the beginning of the script: 
+
+    https://github.com/k3s-io/k3s/blob/master/contrib/util/generate-custom-ca-certs.sh
 
 ## One Liner
 
