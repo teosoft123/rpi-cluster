@@ -19,13 +19,27 @@ ToDo
     * Optionally, install extra tools: sudo apt install smartmontools vim -y
     * Optionally, create or enable your favorite aliases (also maybe for root user)    
     * Disable swap
-    * Ensure cgroups requires by k8s are enabled
+    * Ensure cgroups requires by k8s are enabled: 
     * Install iptables persistence package; answer No to save current: sudo apt install iptables-persistent -y
     * Configure static IP (recommended) or static DHCP mapping
     * Optionally, configure RPi to boot from USB, if you use USB drive: sudo raspi-config, Advanced Options, Boot Order
     
     * Reboot - you will be asked to reboot on the previous step. Or reboot manually.
-    * 
+
+Disable swap:
+
+sudo swapoff -a
+sudo vi /etc/dphys-swapfile -> set CONF_SWAPSIZE=0
+reboot
+
+Enable required cgroups:
+
+sudo vi /boot/cmdline.txt
+add this to the end of current line:
+
+    cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
+
+reboot
 
 
 # k8s - Master node installation
