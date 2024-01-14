@@ -4,7 +4,7 @@ K_LOCAL_HOST_NAME=$(hostname)
 K_LOCAL_HOST_IP=$(hostname -I | cut -d' ' -f1) # or more reliable: ip -4 -o addr show eth0 | awk '{print $4}' | cut -d'/' -f1
 
 K_MASTER_IP=$K_LOCAL_HOST_IP
-K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=$K_LOCAL_HOST_NAME --tls-san=rpi003.h.remmirath.com"
+K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=$K_LOCAL_HOST_NAME" # --tls-san=FULL_HOST_NAME"
 K_INSTALL_SCRIPT=./k3s-install.sh
 curl --no-progress-meter https://get.k3s.io -o $K_INSTALL_SCRIPT
 chmod +x $K_INSTALL_SCRIPT
