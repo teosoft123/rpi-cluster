@@ -16,7 +16,7 @@ ToDo
     * Ensure you can login from remote terminal using ssh
     * sudo apt update && sudo apt upgrade -y 
     * Optionally, add your users SSH key(s)
-    * Optionally, install extra tools: sudo apt install sudo apt install smartmontools vim -y
+    * Optionally, install extra tools: sudo apt install smartmontools vim -y
     * Optionally, create or enable your favorite aliases (also maybe for root user)    
     * Disable swap
     * Ensure cgroups requires by k8s are enabled
