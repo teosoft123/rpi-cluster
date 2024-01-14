@@ -49,7 +49,11 @@ See docs
     curl https://get.k3s.io -o $K_INSTALL_SCRIPT
     chmod +x $K_INSTALL_SCRIPT
 
-TODO specify k8s version!!! 
+    export INSTALL_K3S_VERSION=1.27.9
+
+TODO specify k8s version!!!
+
+TODO add instructions for storage: https://docs.k3s.io/storage#setting-up-longhorn
 
     INSTALL_K3S_SKIP_START="true" $K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw $K_TLS_SANS  --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP --cluster-init
 
