@@ -64,13 +64,13 @@ curl -sL https://github.com/k3s-io/k3s/raw/master/contrib/util/generate-custom-c
 
 After all is successful:
 
-CA certificate generation complete. Required files are now present in: /var/lib/rancher/k3s/server/tls
-For security purposes, you should make a secure copy of the following files and remove them from cluster members:
-/var/lib/rancher/k3s/server/tls/intermediate-ca.crt
-/var/lib/rancher/k3s/server/tls/intermediate-ca.key
-/var/lib/rancher/k3s/server/tls/intermediate-ca.pem
-/var/lib/rancher/k3s/server/tls/root-ca.crt
-/var/lib/rancher/k3s/server/tls/root-ca.pem
+    CA certificate generation complete. Required files are now present in: /var/lib/rancher/k3s/server/tls
+    For security purposes, you should make a secure copy of the following files and remove them from cluster members:
+    /var/lib/rancher/k3s/server/tls/intermediate-ca.crt
+    /var/lib/rancher/k3s/server/tls/intermediate-ca.key
+    /var/lib/rancher/k3s/server/tls/intermediate-ca.pem
+    /var/lib/rancher/k3s/server/tls/root-ca.crt
+    /var/lib/rancher/k3s/server/tls/root-ca.pem
 
 ### k3s server command options
 
