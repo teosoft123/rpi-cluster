@@ -10,7 +10,7 @@ curl --no-progress-meter https://get.k3s.io -o $K_INSTALL_SCRIPT
 chmod +x $K_INSTALL_SCRIPT
 
 # stable versions are here:
-export INSTALL_K3S_VERSION=1.27
+export INSTALL_K3S_VERSION=v1.27.9+k3s1
 
 RUN_COMMAND="$K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP $K_TLS_SANS --cluster-init"
 
