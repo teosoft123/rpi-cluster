@@ -57,7 +57,7 @@ https://docs.k3s.io/cli/certificate#certificate-authority-ca-certificates
 **On the target server node, As root:**
 
     mkdir -p /var/lib/rancher/k3s/server/tls
-    copy CA/Key to above dir - _use prepare-certs.sh script to copy certs from your source_
+    copy CA/Key to above dir - use prepare-certs.sh script to copy certs from your source
     name them root-ca.pem root-ca.key
     then run
 
