@@ -48,6 +48,9 @@ See docs
     export K_INSTALL_SCRIPT=./k3s-install.sh
     curl https://get.k3s.io -o $K_INSTALL_SCRIPT
     chmod +x $K_INSTALL_SCRIPT
+
+TODO specify k8s version!!! 
+
     INSTALL_K3S_SKIP_START="true" $K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw $K_TLS_SANS  --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP --cluster-init
 
 After the above commands executed successfully, you can add custom CA. It's recommended to add Intermediary CA, which will allow not to use Root CA key. Follow instructions here:    
