@@ -13,20 +13,20 @@ export INSTALL_K3S_VERSION=1.27.9
 
 RUN_COMMAND="$K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP $K_TLS_SANS --cluster-init"
 
-printf '%s \n%s\n' "This is what you're going to run:" "${RUN_COMMAND[@]}"
+printf '%s \n%s\n\n' "This is what you're going to run:" "${RUN_COMMAND[@]}"
 
-read -rp "This will install k3s master on your host. Enter Yes to proceed, ^C to stop immediately: " ICONFIRM
-if [ "Yes" == "$ICONFIRM" ]; then
-  read -rp "Are you sure?: " ICONFIRM2
-  if [ ! "Yes" == "$ICONFIRM2" ]; then
-    echo "You answered $ICONFIRM2 - it's not Yes, exiting..."
-    exit 253
-    else
-      echo "You answered $ICONFIRM2 - well, you asked for it, proceeding..."
-  fi
-else
-  echo "Getting to Yes failed, exiting..."
-  exit 254
-fi
+#read -rp "This will install k3s master on your host. Enter Yes to proceed, ^C to stop immediately: " ICONFIRM
+#if [ "Yes" == "$ICONFIRM" ]; then
+#  read -rp "Are you sure?: " ICONFIRM2
+#  if [ ! "Yes" == "$ICONFIRM2" ]; then
+#    echo "You answered $ICONFIRM2 - it's not Yes, exiting..."
+#    exit 253
+#    else
+#      echo "You answered $ICONFIRM2 - well, you asked for it, proceeding..."
+#  fi
+#else
+#  echo "Getting to Yes failed, exiting..."
+#  exit 254
+#fi
 
 echo "${RUN_COMMAND[@]}"
