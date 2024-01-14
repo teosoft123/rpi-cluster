@@ -46,6 +46,10 @@ See docs
 TODO write a shell script that can be downloaded and executed as one-liner, on a target system, like curl -sL <script_url> | bash -   
 Executing it on the target host allows getting local environment such as IP address and host name, and manipulating local files
 
+Here's how to use said script on the target master node: 
+
+curl -sL -H "Authorization: Bearer ATCTT3xFfGN0itnmNCIB6Gp2FWuCqfpXAnNkIor6MkhIRdIqHHjtp6A9rOfoArpHaQYO0K2ynubK5tBoRCrsMeRnK7I5yCQDByuSqel_0nAdM_XOJPVXyVfgZPkadv_bt5PsvKfuTUhyMBYRiLoTkOCbB2d51vsHwV6nh2TdD0MSgKTauWSvA6U=F7365245" https://api.bitbucket.org/2.0/repositories/remmirath/rpi-cluster/src/main/master-install.sh | bash -
+
     export K_MASTER_IP=172.21.200.87
     export K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=rpi003 --tls-san=rpi003.h.remmirath.com"
     export K_INSTALL_SCRIPT=./k3s-install.sh
