@@ -29,4 +29,4 @@ printf '%s \n%s\n\n' "This is what you're going to run:" "${RUN_COMMAND[@]}"
 #  exit 254
 #fi
 
-"${RUN_COMMAND[@]}"
+bash "${RUN_COMMAND[@]}"
