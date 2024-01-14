@@ -43,6 +43,9 @@ See docs
 
 ## Allowing more configuration options
 
+TODO write a shell script that can be downloaded and executed as one-liner, on a target system, like curl -sL <script_url> | bash -   
+Executing it on the target host allows getting local environment such as IP address and host name, and manipulating local files
+
     export K_MASTER_IP=172.21.200.87
     export K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=rpi003 --tls-san=rpi003.h.remmirath.com"
     export K_INSTALL_SCRIPT=./k3s-install.sh
