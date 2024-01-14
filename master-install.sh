@@ -11,13 +11,16 @@ chmod +x $K_INSTALL_SCRIPT
 
 export INSTALL_K3S_VERSION=1.27.9
 
-COMMAND='--disable=traefik --flannel-backend=host-gw'
-for var in "${!K_@}"; do
-  COMMAND+=("${!var}")
-done
-COMMAND+='--cluster-init'
+RUN_COMMAND="$K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP $K_TLS_SANS --cluster-init"
 
-echo "${COMMAND[@]}"
+#for var in "${!K_@}"; do
+#  COMMAND+=("${!var}")
+#done
+#COMMAND+='--cluster-init'
+
+#echo "${COMMAND[@]}"
+
+echo "${RUN_COMMAND[@]}"
 
 #$K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw $K_TLS_SANS  --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP --cluster-init
 
