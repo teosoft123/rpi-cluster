@@ -1,6 +1,19 @@
-# Raspberry Pi Kubernetes Cluster
+# Yet Another Raspberry Pi Kubernetes Cluster
 
-[[_TOC_]]
+<!-- TOC -->
+* [Yet Another Raspberry Pi Kubernetes Cluster](#yet-another-raspberry-pi-kubernetes-cluster)
+* [Hardware](#hardware)
+* [Initial - OS Setup and Configuration](#initial---os-setup-and-configuration)
+* [k8s - Master node installation](#k8s---master-node-installation)
+  * [Custom CA Note](#custom-ca-note-)
+  * [One Liner](#one-liner)
+  * [Allowing more configuration options](#allowing-more-configuration-options)
+    * [k3s server command options](#k3s-server-command-options)
+* [References](#references)
+  * [Raspberry Pi Imager](#raspberry-pi-imager)
+  * [Raspberry Pi configuration](#raspberry-pi-configuration)
+  * [Installing k8s cluster](#installing-k8s-cluster)
+<!-- TOC -->
 
 TODO after initial file is written, I may split it into multiple files 
 
