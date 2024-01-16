@@ -5,7 +5,7 @@
 set -e -o pipefail
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install smartmontools vim -y
+sudo apt install iptables-persistent smartmontools vim -y
 # turn the swap off immediately and permanently
 sudo swapoff -a
 sudo sed -iE 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=0/g' /etc/dphys-swapfile
