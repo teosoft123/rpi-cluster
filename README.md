@@ -75,7 +75,9 @@ Executing it on the target host allows getting local environment such as IP addr
 
 Here's how to use said script on the target master node: 
 
-curl -sL -H "Authorization: Bearer ATCTT3xFfGN0itnmNCIB6Gp2FWuCqfpXAnNkIor6MkhIRdIqHHjtp6A9rOfoArpHaQYO0K2ynubK5tBoRCrsMeRnK7I5yCQDByuSqel_0nAdM_XOJPVXyVfgZPkadv_bt5PsvKfuTUhyMBYRiLoTkOCbB2d51vsHwV6nh2TdD0MSgKTauWSvA6U=F7365245" https://api.bitbucket.org/2.0/repositories/remmirath/rpi-cluster/src/main/master-install.sh | bash -
+[//]: # (curl -sL -H "Authorization: Bearer ATCTT3xFfGN0itnmNCIB6Gp2FWuCqfpXAnNkIor6MkhIRdIqHHjtp6A9rOfoArpHaQYO0K2ynubK5tBoRCrsMeRnK7I5yCQDByuSqel_0nAdM_XOJPVXyVfgZPkadv_bt5PsvKfuTUhyMBYRiLoTkOCbB2d51vsHwV6nh2TdD0MSgKTauWSvA6U=F7365245" https://api.bitbucket.org/2.0/repositories/remmirath/rpi-cluster/src/main/master-install.sh | bash -)
+
+curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/master-install.sh | bash -
 
     export K_MASTER_IP=172.21.200.87
     export K_TLS_SANS="--tls-san=$K_MASTER_IP --tls-san=rpi003 --tls-san=rpi003.h.remmirath.com"
