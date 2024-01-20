@@ -42,7 +42,7 @@ if [ 1 -eq "$CGROUP_ENABLE_MEMORY" ]; then CGROUP_ENABLE_MEMORY='cgroup_enable=m
 ADD_CGROUPS="${CGROUP_ENABLE_CPUSET} ${CGROUP_MEMORY_1} ${CGROUP_ENABLE_MEMORY}"
 
 echo "Adding required groups: ${ADD_CGROUPS}"
-sudo sed -i "s/$/ ${ADD_CGROUPS}/" $BOOTFILE
+sudo sed  --in-place --follow-symlinks "s/$/ ${ADD_CGROUPS}/" $BOOTFILE
 
 echo "Final Boot command line:"
 sudo cat "${BOOTFILE}"
