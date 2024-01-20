@@ -21,6 +21,7 @@ echo "Enabling required cgroups only if they're not already present"
 # Default boot file: console=serial0,115200 console=tty1 root=PARTUUID=25a1dbb8-02 rootfstype=ext4 fsck.repair=yes rootwait
 BOOTFILE=/boot/cmdline.txt
 echo "BOOTFILE: ${BOOTFILE}"
+sudo cat "${BOOTFILE}"
 
 sudo egrep -i 'cgroup_enable\s*=\s*cpuset' "${BOOTFILE}"
 CGROUP_ENABLE_CPUSET=$?
