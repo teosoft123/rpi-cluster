@@ -21,20 +21,17 @@ echo "Enabling required cgroups only if they're not already present"
 # Default boot file: console=serial0,115200 console=tty1 root=PARTUUID=25a1dbb8-02 rootfstype=ext4 fsck.repair=yes rootwait
 BOOTFILE=/boot/cmdline.txt
 
-printf "%s" "Original Boot command line:"
+printf "%s\n" "Original Boot command line:"
 sudo cat "${BOOTFILE}"
 echo
 
 set +e
 (sudo egrep -i 'cgroup_enable\s*=\s*cpuset' "${BOOTFILE}")
 CGROUP_ENABLE_CPUSET=$?
-echo "CGROUP_ENABLE_CPUSET: ${CGROUP_ENABLE_CPUSET}"
 (sudo egrep -i 'cgroup_memory\s*=\s*1' "${BOOTFILE}")
 CGROUP_MEMORY_1=$?
-echo "CGROUP_MEMORY_1: ${CGROUP_MEMORY_1}"
 (sudo egrep -i 'cgroup_enable\s*=\s*memory' "${BOOTFILE}")
 CGROUP_ENABLE_MEMORY=$?
-echo "CGROUP_ENABLE_MEMORY: ${CGROUP_ENABLE_MEMORY}"
 set -e
 echo
 
@@ -47,7 +44,7 @@ ADD_CGROUPS="${CGROUP_ENABLE_CPUSET} ${CGROUP_MEMORY_1} ${CGROUP_ENABLE_MEMORY}"
 printf "%s\n" "Adding required groups: ${ADD_CGROUPS}"
 sudo sed -i "s/$/ ${ADD_CGROUPS}/" $BOOTFILE
 
-printf "%s" "Boot command line:"
+printf "%s\n" "Final Boot command line:"
 sudo cat "${BOOTFILE}"
 echo
 
