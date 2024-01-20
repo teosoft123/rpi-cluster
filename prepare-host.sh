@@ -14,7 +14,7 @@ echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo deb
 sudo apt-get install iptables-persistent -y
 
 echo "Turning the swap off immediately and permanently"
-sudo swapoff -a
+sudo swapoff -av
 sudo sed -iE 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=0/g' /etc/dphys-swapfile
 
 echo "Enabling required cgroups only if they're not already present"
@@ -24,7 +24,7 @@ ALL_CGROUPS_PRESENT=$(sudo cat $BOOTFILE |  grep -iE 'cgroup_enable\s*=\s*cpuset
 echo "BOOTFILE: ${BOOTFILE}"
 echo "REQUIRED_GROUPS: ${REQUIRED_GROUPS}"
 echo "ALL_CGROUPS_PRESENT: ${ALL_CGROUPS_PRESENT}"
-if [ "" != "$ALL_CGROUPS_PRESENT" ]; then
+if [ "" == "$ALL_CGROUPS_PRESENT" ]; then
   printf "All of required cgroups present, not making any changes: %s\n" "$ALL_CGROUPS_PRESENT"
 else
   # adding required groups
