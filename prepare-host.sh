@@ -23,6 +23,7 @@ BOOTFILE=/boot/cmdline.txt
 
 printf "%s" "Original Boot command line:"
 sudo cat "${BOOTFILE}"
+echo
 
 set +e
 (sudo egrep -i 'cgroup_enable\s*=\s*cpuset' "${BOOTFILE}")
@@ -48,5 +49,6 @@ sudo sed -i "s/$/ ${ADD_CGROUPS}/" $BOOTFILE
 
 printf "%s" "Boot command line:"
 sudo cat "${BOOTFILE}"
+echo
 
 # SCRATCH #
