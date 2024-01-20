@@ -9,8 +9,8 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install smartmontools vim -y
 
 # package iptables-persistent  requires special treatment
-echo iptables-persistent iptables-persistent/autosave_v4 boolean false | sudo debconf-set-selections
-echo iptables-persistent iptables-persistent/autosave_v6 boolean false | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 sudo apt-get install iptables-persistent -y
 
 # turn the swap off immediately and permanently
