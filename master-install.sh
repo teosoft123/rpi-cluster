@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Usage: on a target system, run
+# curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/master-install.sh | bash -
+# this settings are important - if you comment it out or delete it,
+# you might end up with partially functioning installation
+set -e -o pipefail
 
 K_LOCAL_HOST_NAME=$(hostname)
 K_LOCAL_HOST_IP=$(hostname -I | cut -d' ' -f1) # or more reliable: ip -4 -o addr show eth0 | awk '{print $4}' | cut -d'/' -f1
