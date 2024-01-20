@@ -21,9 +21,10 @@ echo "Enabling required cgroups only if they're not already present"
 BOOTFILE=/boot/cmdline.txt
 echo "BOOTFILE: ${BOOTFILE}"
 
-
 (sudo cat $BOOTFILE | grep -iE 'cgroup_enable\s*=\s*cpuset' > /dev/null)
 CGROUP_ENABLE_CPUSET=$?
+echo "CGROUP_ENABLE_CPUSET: $CGROUP_ENABLE_CPUSET"
+
 (sudo cat $BOOTFILE | grep -iE 'cgroup_memory\s*=\s*1' > /dev/null )
 CGROUP_MEMORY_1=$?
 (sudo cat $BOOTFILE | grep -iE 'cgroup_enable\s*=\s*memory' > /dev/null)
@@ -32,6 +33,11 @@ CGROUP_ENABLE_MEMORY=$?
 if [ 1 -eq "$CGROUP_ENABLE_CPUSET" ]; then CGROUP_ENABLE_CPUSET='cgroup_enable=cpuset'; else CGROUP_ENABLE_CPUSET=''; fi
 if [ 1 -eq "$CGROUP_MEMORY_1" ]; then CGROUP_MEMORY_1='cgroup_memory=1'; else CGROUP_MEMORY_1=''; fi
 if [ 1 -eq "$CGROUP_ENABLE_MEMORY" ]; then CGROUP_ENABLE_MEMORY='cgroup_enable=memory'; else CGROUP_ENABLE_MEMORY=''; fi
+
+echo "CGROUP_ENABLE_CPUSET: ${CGROUP_ENABLE_CPUSET}"
+echo "CGROUP_MEMORY_1: ${CGROUP_MEMORY_1}"
+echo "CGROUP_ENABLE_MEMORY: ${CGROUP_ENABLE_MEMORY}"
+echo
 
 ADD_CGROUPS="${CGROUP_ENABLE_CPUSET} ${CGROUP_MEMORY_1} ${CGROUP_ENABLE_MEMORY}"
 
