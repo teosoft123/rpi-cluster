@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-
+# Usage: on a target system, run
+# curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/prepare-host.sh | bash -
 # this settings are important - if you comment it out or delete it,
 # you might end up with partially functioning installation
 set -e -o pipefail

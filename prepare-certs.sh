@@ -9,6 +9,8 @@ TARGET_HOST=rpi003
 #DEST=/var/lib/rancher/k3s/server/tls
 DEST="/home/oleg"
 
+# Try rsync -avP ./{a/*,b/*}  c/
+
 rsync -avP ${ROOT_CERT_DIR}/${ROOT_CERT_NAME} $TARGET_HOST:$DEST/root-ca.pem
 rsync -avP ${ROOT_KEY_DIR}/${ROOT_KEY_NAME} $TARGET_HOST:$DEST/root-ca.key
 
