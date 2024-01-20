@@ -3,9 +3,7 @@
 # curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/prepare-host.sh | bash -
 # this settings are important - if you comment it out or delete it,
 # you might end up with partially functioning installation
-#set -e -o pipefail
-#
-set +x
+set -e -o pipefail
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install smartmontools vim -y
@@ -21,6 +19,8 @@ sudo sed -iE 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=0/g' /etc/dphys-swapfile
 
 echo "Enabling required cgroups only if they're not already present"
 BOOTFILE=/boot/cmdline.txt
+echo "BOOTFILE: ${BOOTFILE}"
+
 
 (sudo cat $BOOTFILE | grep -iE 'cgroup_enable\s*=\s*cpuset' > /dev/null)
 CGROUP_ENABLE_CPUSET=$?
