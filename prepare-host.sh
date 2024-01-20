@@ -3,7 +3,9 @@
 # curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/prepare-host.sh | bash -
 # this settings are important - if you comment it out or delete it,
 # you might end up with partially functioning installation
-set -e -o pipefail
+#set -e -o pipefail
+
+set +x
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install smartmontools vim -y
