@@ -20,15 +20,15 @@ sudo sed -iE 's/CONF_SWAPSIZE=.*/CONF_SWAPSIZE=0/g' /etc/dphys-swapfile
 echo "Enabling required cgroups only if they're not already present"
 BOOTFILE=/boot/cmdline.txt
 echo "BOOTFILE: ${BOOTFILE}"
-sudo cat "{$BOOTFILE}"
+sudo cat "${BOOTFILE}"
 
-(sudo cat "{$BOOTFILE}" | grep -iE 'cgroup_enable\s*=\s*cpuset' > /dev/null)
+(sudo cat "${BOOTFILE}" | grep -iE 'cgroup_enable\s*=\s*cpuset' > /dev/null)
 CGROUP_ENABLE_CPUSET=$?
 echo "CGROUP_ENABLE_CPUSET: ${CGROUP_ENABLE_CPUSET}"
-(sudo cat "{$BOOTFILE}" | grep -iE 'cgroup_memory\s*=\s*1' > /dev/null )
+(sudo cat "${BOOTFILE}" | grep -iE 'cgroup_memory\s*=\s*1' > /dev/null )
 CGROUP_MEMORY_1=$?
 echo "CGROUP_MEMORY_1: ${CGROUP_MEMORY_1}"
-(sudo cat "{$BOOTFILE}" | grep -iE 'cgroup_enable\s*=\s*memory' > /dev/null)
+(sudo cat "${BOOTFILE}" | grep -iE 'cgroup_enable\s*=\s*memory' > /dev/null)
 CGROUP_ENABLE_MEMORY=$?
 echo "CGROUP_ENABLE_MEMORY: ${CGROUP_ENABLE_MEMORY}"
 echo
