@@ -21,6 +21,9 @@ echo "Enabling required cgroups only if they're not already present"
 BOOTFILE=/boot/cmdline.txt
 REQUIRED_GROUPS="cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory"
 ALL_CGROUPS_PRESENT=$(sudo cat $BOOTFILE |  grep -iE 'cgroup_enable\s*=\s*cpuset' | grep -iE 'cgroup_memory\s*=\s*1' | grep 'cgroup_enable\s*=\s*memory')
+echo "BOOTFILE: ${BOOTFILE}"
+echo "REQUIRED_GROUPS: ${REQUIRED_GROUPS}"
+echo "ALL_CGROUPS_PRESENT: ${ALL_CGROUPS_PRESENT}"
 if [ "" != "$ALL_CGROUPS_PRESENT" ]; then
   printf "All of required cgroups present, not making any changes: %s\n" "$ALL_CGROUPS_PRESENT"
 else
