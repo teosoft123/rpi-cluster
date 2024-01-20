@@ -4,7 +4,7 @@
 # this settings are important - if you comment it out or delete it,
 # you might end up with partially functioning installation
 #set -e -o pipefail
-
+#
 set +x
 
 sudo apt update && sudo apt upgrade -y
