@@ -22,13 +22,13 @@ echo "Enabling required cgroups only if they're not already present"
 BOOTFILE=/boot/cmdline.txt
 echo "BOOTFILE: ${BOOTFILE}"
 
-sudo grep -iE 'cgroup_enable\s*=\s*cpuset' "${BOOTFILE}"
+sudo egrep -i 'cgroup_enable\s*=\s*cpuset' "${BOOTFILE}"
 CGROUP_ENABLE_CPUSET=$?
 echo "CGROUP_ENABLE_CPUSET: ${CGROUP_ENABLE_CPUSET}"
-sudo grep -iE 'cgroup_memory\s*=\s*1' "${BOOTFILE}"
+sudo egrep -i 'cgroup_memory\s*=\s*1' "${BOOTFILE}"
 CGROUP_MEMORY_1=$?
 echo "CGROUP_MEMORY_1: ${CGROUP_MEMORY_1}"
-sudo grep -iE 'cgroup_enable\s*=\s*memory' "${BOOTFILE}"
+sudo egrep -i 'cgroup_enable\s*=\s*memory' "${BOOTFILE}"
 CGROUP_ENABLE_MEMORY=$?
 echo "CGROUP_ENABLE_MEMORY: ${CGROUP_ENABLE_MEMORY}"
 echo
