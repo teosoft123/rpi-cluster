@@ -6,7 +6,7 @@
 set -e -o pipefail
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install smartmontools vim -y
+sudo apt install smartmontools vim pcregrep -y
 
 # package iptables-persistent  requires special treatment
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
