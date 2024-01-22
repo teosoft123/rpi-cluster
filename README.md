@@ -72,7 +72,13 @@ See docs
 # k8s - Worker node installation
 
 TODO Do I need to copy certs to /var/lib/rancher/k3s/server/tls first?
-^^^^
+^^^^ probably not - should a node obtain certs from master?
+
+And definitely need to add own CA to all nodes, see:
+https://stackoverflow.com/questions/72326132/unable-to-connect-worker-node-to-master-using-k3s
+
+Copy CA cert to /usr/local/share/ca-certificates, then issue an
+sudo update-ca-certificates
 
 export INSTALL_K3S_VERSION=v1.27.9+k3s1
 curl -sfL https://get.k3s.io K3S_URL=https://172.21.200.80:6443 \
