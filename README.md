@@ -68,6 +68,16 @@ Use this script and follow instructions provided at the beginning of the script:
 
 See docs
 
+
+# k8s - Worker node installation
+
+TODO Do I need to copy certs to /var/lib/rancher/k3s/server/tls first?
+^^^^
+
+export INSTALL_K3S_VERSION=v1.27.9+k3s1
+curl -sfL https://get.k3s.io K3S_URL=https://172.21.200.80:6443 \
+   K3S_TOKEN=K10a8add08cdd2949d4c523a7de6a07d2d92e0aee6c9bdfc95481493e1b5731e1da::server:ccc765dfddb01c1929d55f7d336cd286 | bash -
+
 ## Allowing more configuration options
 
 TODO write a shell script that can be downloaded and executed as one-liner, on a target system, like curl -sL <script_url> | bash -   
