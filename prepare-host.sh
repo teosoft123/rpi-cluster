@@ -48,4 +48,5 @@ echo "Final Boot command line:"
 sudo cat "${BOOTFILE}"
 echo
 
+curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/utils/ -O ${HOME}
 # SCRATCH #
