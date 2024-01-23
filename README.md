@@ -58,6 +58,8 @@ reboot
 
 # k8s - Master node installation
 
+TODO - pass cluster name to scripts! 
+
 ## Custom CA Note 
 
 If you want to use your own CA, you have to create all certificates required by k8s __before__ first start of the k8s master.
@@ -85,9 +87,12 @@ Obtain k3s token: on master, run:
 
   sudo cat /var/lib/rancher/k3s/server/node-token
 
-export INSTALL_K3S_VERSION=v1.27.9+k3s1
-curl -sfL https://get.k3s.io K3S_URL=https://172.21.200.80:6443 \
-   K3S_TOKEN="K10a8add08cdd2949d4c523a7de6a07d2d92e0aee6c9bdfc95481493e1b5731e1da::server:ccc765dfddb01c1929d55f7d336cd286" | sh -
+[//]: # (export INSTALL_K3S_VERSION=v1.27.9+k3s1)
+
+curl -sL https://get.k3s.io | \
+   K3S_URL=https://172.21.200.80:6443 \
+   INSTALL_K3S_VERSION=v1.27.9+k3s1 \
+   K3S_TOKEN="K10a8add08cdd2949d4c523a7de6a07d2d92e0aee6c9bdfc95481493e1b5731e1da::server:ccc765dfddb01c1929d55f7d336cd286" sh -
 
 ## Allowing more configuration options
 
