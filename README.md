@@ -7,6 +7,7 @@
 * [k8s - Master node installation](#k8s---master-node-installation)
   * [Custom CA Note](#custom-ca-note-)
   * [One Liner](#one-liner)
+* [k8s - Worker node installation](#k8s---worker-node-installation)
   * [Allowing more configuration options](#allowing-more-configuration-options)
     * [k3s server command options](#k3s-server-command-options)
 * [References](#references)
@@ -80,9 +81,13 @@ https://stackoverflow.com/questions/72326132/unable-to-connect-worker-node-to-ma
 Copy CA cert to /usr/local/share/ca-certificates, then issue an
 sudo update-ca-certificates
 
+Obtain k3s token: on master, run:
+
+  sudo cat /var/lib/rancher/k3s/server/node-token
+
 export INSTALL_K3S_VERSION=v1.27.9+k3s1
 curl -sfL https://get.k3s.io K3S_URL=https://172.21.200.80:6443 \
-   K3S_TOKEN=K10a8add08cdd2949d4c523a7de6a07d2d92e0aee6c9bdfc95481493e1b5731e1da::server:ccc765dfddb01c1929d55f7d336cd286 | bash -
+   K3S_TOKEN="K10a8add08cdd2949d4c523a7de6a07d2d92e0aee6c9bdfc95481493e1b5731e1da::server:ccc765dfddb01c1929d55f7d336cd286" | sh -
 
 ## Allowing more configuration options
 
