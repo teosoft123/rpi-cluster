@@ -16,7 +16,7 @@ chmod +x $K_INSTALL_SCRIPT
 
 # If these variables are defined before running script, the defined values will be used
 export INSTALL_K3S_VERSION=v1.27.9+k3s1  # ${INSTALL_K3S_VERSION:+v1.27.9+k3s1}
-export INSTALL_K3S_NAME=rpik3s # ${INSTALL_K3S_NAME:+rpik3s}
+export INSTALL_K3S_NAME=rpi # ${INSTALL_K3S_NAME:+rpi}
 
 RUN_COMMAND="$K_INSTALL_SCRIPT --disable=traefik --flannel-backend=host-gw --bind-address=$K_MASTER_IP --advertise-address=$K_MASTER_IP --node-ip=$K_MASTER_IP $K_TLS_SANS --cluster-init"
 
