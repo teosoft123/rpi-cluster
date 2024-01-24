@@ -41,7 +41,7 @@ argocd: create_argocd_namespace install_argocd patch_argocd_for_ui_access show_a
 
 # Linkerd
 install_linkerd_cli:
-	curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install | sh
+	curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install | sh -
 	@echo 'Please add the following to your .bashrc or .zshrc:'
 	@echo 'export PATH=$$HOME/.linkerd2/bin:$$PATH'
 

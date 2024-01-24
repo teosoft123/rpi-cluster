@@ -49,4 +49,11 @@ sudo cat "${BOOTFILE}"
 echo
 
 curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/utils/monitor.sh -O
+
+K3S_CONFIG=${HOME}/.config/k3s-install
+mkdir -p ${K3S_CONFIG}
+touch ${K3S_CONFIG}/.prepare-host-run-success
+
+
+
 # SCRATCH #
