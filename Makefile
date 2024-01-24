@@ -60,6 +60,9 @@ install_linkerd_cni:
 linkerd_pre_check:
 	linkerd check --linkerd-cni-enabled --pre
 
+linkerd_pre_check_no_cni:
+	linkerd check --pre
+
 install_linkerd: linkerd_pre_check
 	linkerd install --linkerd-cni-enabled | kubectl apply -f -
 
