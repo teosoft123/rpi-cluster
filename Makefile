@@ -53,7 +53,8 @@ install_linkerd_crd:
 	linkerd install --crds | kubectl apply -f -
 
 install_linkerd_cni:
-	linkerd install-cni --dest-cni-bin-dir /usr/libexec/cni/ | kubectl apply -f -
+#	linkerd install-cni --dest-cni-bin-dir /usr/libexec/cni/ | kubectl apply -f -
+	linkerd install-cni --dest-cni-bin-dir | kubectl apply -f -
 
 linkerd_pre_check:
 	linkerd check --linkerd-cni-enabled --pre
