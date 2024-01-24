@@ -15,7 +15,8 @@ curl --no-progress-meter https://get.k3s.io -o $K_INSTALL_SCRIPT
 chmod +x $K_INSTALL_SCRIPT
 
 # If these variables are defined before running script, the defined values will be used
-export INSTALL_K3S_VERSION=v1.28.5+k3s1  # ${INSTALL_K3S_VERSION:+v1.28.5+k3s1}
+# Versions are defined here: https://update.k3s.io/v1-release/channelsZ
+export INSTALL_K3S_VERSION=v1.27.9+k3s1  # ${INSTALL_K3S_VERSION:+v1.27.9+k3s1} v1.28.5+k3s1
 
 #Name does not change anything but names of scripts - don't think it's useful
 #export INSTALL_K3S_NAME=rpi # ${INSTALL_K3S_NAME:+rpi}
