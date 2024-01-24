@@ -53,8 +53,9 @@ install_linkerd_crd:
 	linkerd install --crds | kubectl apply -f -
 
 install_linkerd_cni:
+# is the default destination /var/lib/cni/ ?
 #	linkerd install-cni --dest-cni-bin-dir /usr/libexec/cni/ | kubectl apply -f -
-	linkerd install-cni --dest-cni-bin-dir | kubectl apply -f -
+	linkerd install-cni | kubectl apply -f -
 
 linkerd_pre_check:
 	linkerd check --linkerd-cni-enabled --pre
@@ -68,7 +69,7 @@ install_linkerd_without_cni:
 uninstall_linkerd:
 	linkerd uninstall | kubectl delete -f -
 
-unistall_linkerd_cni:
+uninstall_linkerd_cni:
 	linkerd install-cni | kubectl delete -f -
 
 linkerd_check:

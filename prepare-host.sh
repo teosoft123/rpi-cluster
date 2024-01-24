@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Usage: on a target system, run
 # curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/prepare-host.sh | bash -
+
 # this settings are important - if you comment it out or delete it,
 # you might end up with partially functioning installation
 set -e -o pipefail
@@ -50,7 +51,7 @@ echo
 
 curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/utils/monitor.sh -O
 
-K3S_CONFIG=${HOME}/.config/k3s-install
+K3S_CONFIG=${HOME}/.config/host-k3s-install
 mkdir -p ${K3S_CONFIG}
 touch ${K3S_CONFIG}/.prepare-host-run-success
 
