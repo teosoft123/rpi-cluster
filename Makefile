@@ -1,3 +1,7 @@
+
+# Get me first:
+# curl -sL https://raw.githubusercontent.com/teosoft123/rpi-cluster/main/Makefile -O
+
 install:
 	helm install \
 		-f ./local.values.yaml \
